@@ -40,29 +40,20 @@ int main()
     }
     swiWaitForVBlank();
 
-    printf("Creating save file...\n");
-    save = new Save();
-
-    // use necessary functions here so we can include them in dynlibs
-    save->getSaveSlot();
-    mallinfo();
-
     printf("Loading example library...\n");
     Loader::loadExampleLib();
 
-    SaveExtensions::setFlag(save, 5);
-    if (SaveExtensions::isFlagSet(save, 5))
+    printf("Creating save file...\n");
+    save = Loader::createSave();
+
+    save->setFlag(5);
+    if (save->isFlagSet(5))
     {
-        printf("Flag 5 was set.\n");
+        printf("Flag 5 was set.");
     }
-    SaveExtensions::setGlobal(save, 5, 20);
-    printf("Global 5 was set to %d\n", SaveExtensions::getGlobal(save, 5));
 
-    SaveManager::save(1, save);
-
-    SaveExtensions::saveSeekForSomeReason(save, string("nitro:/files/tmp.sav"));
-
-    printf("Mem used: %d\nMem free: %d\n", Debug::getMemUsed(), Debug::getMemFree());
+    save->setGlobal(5, 50);
+    printf("Global 5 has value %d", save->getGlobal(5));
 
     printf("Unloading example lib...\n");
     Loader::unloadExmapleLib();

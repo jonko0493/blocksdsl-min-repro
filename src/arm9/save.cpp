@@ -84,23 +84,3 @@ Save *SaveManager::load(int slot)
 
     return save;
 }
-
-Save::Save()
-{
-    this->saveSlot = new SaveSlot();
-}
-
-Save::Save(SaveSlot *save)
-{
-    this->saveSlot = save;
-}
-
-Save::~Save()
-{
-    delete saveSlot;
-}
-
-SaveSlot *Save::getSaveSlot()
-{
-    return this->saveSlot;
-}

@@ -8,22 +8,22 @@ arm9 = Arm9Binary(
 )
 arm9.generate_elf()
 
-example_lib = Arm9DynamicLibrary(
-    name='example',
+save_lib = Arm9DynamicLibrary(
+    name='save',
     main_binary=arm9,
-    sourcedirs=['src/lib_example'],
+    sourcedirs=['src/lib_save'],
     cxxflags='-Werror -Wno-psabi -fpermissive -std=gnu++20',
     libdirs=['${BLOCKSDS}/libs/libnds']
 )
-example_lib.generate_dsl()
+save_lib.generate_dsl()
 
 nitrofs = NitroFS()
-nitrofs.add_arm9_dsl(example_lib)
+nitrofs.add_arm9_dsl(save_lib)
 nitrofs.add_files_unchanged('nitrofs')
 nitrofs.generate_image()
 
 nds = NdsRom(
-    binaries=[arm9, example_lib, nitrofs],
+    binaries=[arm9, save_lib, nitrofs],
     nds_path='dyn_lib_bug_min_repro.nds',
     game_title='Dynamic Library',
     game_subtitle='Bug Repro'

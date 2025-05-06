@@ -31,14 +31,14 @@ struct SaveSlot
 
 class Save
 {
-    private:
-        SaveSlot *saveSlot;
-
     public:
-        Save();
-        Save(SaveSlot *save);
-        ~Save();
-        SaveSlot *getSaveSlot();
+        virtual ~Save();
+        virtual SaveSlot *getSaveSlot();
+        virtual bool isFlagSet(u16 flag);
+        virtual void setFlag(u16 flag);
+        virtual void clearFlag(u16 flag);
+        virtual u8 getGlobal(u16 global);
+        virtual void setGlobal(u16 global, u8 value);
 };
 
 class SaveManager
