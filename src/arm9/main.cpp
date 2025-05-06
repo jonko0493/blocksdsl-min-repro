@@ -60,7 +60,7 @@ int main()
 
     SaveManager::save(1, save);
 
-    SaveExtensions::saveSeekForSomeReason(save, string("nitro:/tmp.sav"));
+    SaveExtensions::saveSeekForSomeReason(save, string("nitro:/files/tmp.sav"));
 
     printf("Mem used: %d\nMem free: %d\n", Debug::getMemUsed(), Debug::getMemFree());
 
