@@ -27,7 +27,7 @@ namespace Loader
         exampleLib = dlopen("nitro:/dsl/example.dsl", RTLD_NOW | RTLD_LOCAL);
         printf("Example lib loaded to %x\n", (u32)exampleLib);
 
-        isFlagSetFn = (fnIsFlagSet *)dlsym(exampleLib, "isFlagSet(Save*, unsi");
+        isFlagSetFn = (fnIsFlagSet *)dlsym(exampleLib, "isFlagSet");
         printf("isFlagSet loaded to %x\n", (u32)isFlagSetFn);
         setFlagFn = (fnSetFlag *)dlsym(exampleLib, "setFlag");
         clearFlagFn = (fnClearFlag *)dlsym(exampleLib, "clearFlag");
@@ -35,6 +35,7 @@ namespace Loader
         setGlobalFn = (fnSetGlobal *)dlsym(exampleLib, "setGlobal");
 
         getMemUsedFn = (fnGetMemUsed *)dlsym(exampleLib, "getMemUsed");
+        printf("getMemUsed loaded to %x\n", (u32)getMemUsedFn);
         getMemFreeFn = (fnGetMemFree *)dlsym(exampleLib, "getMemFree");
     }
 

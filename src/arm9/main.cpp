@@ -56,6 +56,8 @@ int main()
     }
     SaveExtensions::setGlobal(save, 5, 20);
     printf("Global 5 was set to %d\n", SaveExtensions::getGlobal(save, 5));
+    
+    SaveManager::save(1, save);
 
     printf("Mem used: %d\nMem free: %d\n", Debug::getMemUsed(), Debug::getMemFree());
 
