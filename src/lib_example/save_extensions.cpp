@@ -1,4 +1,5 @@
 #include "../arm9/save.hpp"
+#include <errno.h>
 
 #define SYM_PUBLIC __attribute__((visibility ("default")))
 
@@ -42,6 +43,7 @@ SYM_PUBLIC void setGlobal(Save *save, u16 global, u8 value)
 SYM_PUBLIC void saveSeekForSomeReason(Save *save, string otherSave)
 {
     FILE *otherSaveFile = fopen(otherSave.c_str(), "rb");
+    printf("%x", (u32)errno);
 
     fseek(otherSaveFile, 100, SEEK_SET);
 

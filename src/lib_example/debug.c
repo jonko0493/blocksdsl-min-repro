@@ -1,5 +1,4 @@
 #include <nds.h>
-#include <nds/arm9/math.h>
 #include <malloc.h>
 #include <unistd.h>
 
@@ -33,7 +32,6 @@ SYM_PUBLIC int getMemUsed()
 // returns the amount of free memory in bytes 
 SYM_PUBLIC int getMemFree()
 {
-   mulf32(floattof32(1.0), floattof32(25.0));
    struct mallinfo mi = mallinfo(); 
    return mi.fordblks + (getHeapLimit() - getHeapEnd()); 
 }
