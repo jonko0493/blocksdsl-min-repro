@@ -24,6 +24,7 @@ int main()
 
     consoleSelect(&topScreen);
 
+
     bool init_ok = nitroFSInit(NULL);
     if (!init_ok)
     {
@@ -41,20 +42,24 @@ int main()
     printf("Creating save file...\n");
     save = new Save();
 
-    printf("Loading example library...");
+    // use necessary functions here so we can include them in dynlibs
+    save->getSaveSlot();
+    mallinfo();
+
+    printf("Loading example library...\n");
     Loader::loadExampleLib();
 
     SaveExtensions::setFlag(save, 5);
     if (SaveExtensions::isFlagSet(save, 5))
     {
-        printf("Flag 5 was set.");
+        printf("Flag 5 was set.\n");
     }
     SaveExtensions::setGlobal(save, 5, 20);
-    printf("Global 5 was set to %d", SaveExtensions::getGlobal(save, 5));
+    printf("Global 5 was set to %d\n", SaveExtensions::getGlobal(save, 5));
 
-    printf("Mem used: %d\nMem free: %d", Debug::getMemUsed(), Debug::getMemFree());
+    printf("Mem used: %d\nMem free: %d\n", Debug::getMemUsed(), Debug::getMemFree());
 
-    printf("Unloading example lib...");
+    printf("Unloading example lib...\n");
     Loader::unloadExmapleLib();
 
     printf("Press START to exit to loader\n");

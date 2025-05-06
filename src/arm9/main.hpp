@@ -9,6 +9,7 @@
 #include <iostream>
 #include <regex>
 
+#include <malloc.h>
 #include <fat.h>
 #include <filesystem.h>
 #include <nds.h>
@@ -20,5 +21,3 @@
 Save *save;
 
 int main();
-void update();
-void render();
