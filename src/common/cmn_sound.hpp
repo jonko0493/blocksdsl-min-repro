@@ -1,0 +1,6 @@
+#pragma once
+
+#define PLAY_PERSISTENT_SOUND 0x2000
+#define START_SOUND 0x4000
+#define STOP_SOUND 0x8000
+#define SOUND_MASK 0x1FFF
