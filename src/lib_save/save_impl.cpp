@@ -1,8 +1,9 @@
 #include "save_impl.hpp"
-
 SaveImpl::SaveImpl()
 {
     this->saveSlot = new SaveSlot();
+    SoundPlayer *soundPlayer = new SoundPlayer();
+    soundPlayer->playSound();
 }
 
 SaveImpl::SaveImpl(SaveSlot *save)

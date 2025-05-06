@@ -5,6 +5,7 @@
 
 #include <nds.h>
 #include <nds/arm9/dldi.h>
+#include <nds/interrupts.h>
 #include <fat.h>
 
 using namespace std;

@@ -18,6 +18,7 @@
 
 #include "loader.hpp"
 #include "save.hpp"
+#include "sound.hpp"
 
 Save *save;
 

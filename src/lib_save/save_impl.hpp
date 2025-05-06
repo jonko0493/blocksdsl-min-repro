@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../arm9/save.hpp"
+#include "../arm9/sound.hpp"
 
 class SaveImpl : Save
 {

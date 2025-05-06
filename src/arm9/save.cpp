@@ -6,6 +6,13 @@ void debugLog(string str)
     printf(format("{}\n", str).c_str());
 }
 
+void pointlessTimer()
+{
+    debugLog("In the timer");
+    swiWaitForVBlank();
+    timerStop(1);
+}
+
 string SaveManager::getSavePath()
 {    
     string defaultDrive = string(fatGetDefaultDrive());
@@ -62,6 +69,8 @@ void SaveManager::save(int slot, Save *save)
 
     fclose(saveFile);
     debugLog("Saved!");
+
+    timerStart(1, ClockDivider_64, 1, pointlessTimer);
 }
 
 Save *SaveManager::load(int slot)

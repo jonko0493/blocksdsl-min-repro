@@ -43,6 +43,10 @@ int main()
     printf("Loading example library...\n");
     Loader::loadExampleLib();
 
+    SoundPlayer *soundPlayer = new SoundPlayer();
+    soundPlayer->playSound();
+    soundPlayer->stopSound();
+
     printf("Creating save file...\n");
     save = Loader::createSave();
 

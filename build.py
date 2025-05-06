@@ -2,9 +2,9 @@ from architectds import *
 
 arm9 = Arm9Binary(
     sourcedirs=['src/arm9'],
-    libs=['nds9'],
+    libs=['mm9', 'nds9'],
     cxxflags='-Werror -Wno-psabi -fpermissive -std=gnu++20',
-    libdirs=['${BLOCKSDS}/libs/libnds']
+    libdirs=['${BLOCKSDS}/libs/maxmod', '${BLOCKSDS}/libs/libnds']
 )
 arm9.generate_elf()
 
@@ -12,8 +12,9 @@ save_lib = Arm9DynamicLibrary(
     name='save',
     main_binary=arm9,
     sourcedirs=['src/lib_save'],
+    libs=['mm9', 'nds9'],
     cxxflags='-Werror -Wno-psabi -fpermissive -std=gnu++20',
-    libdirs=['${BLOCKSDS}/libs/libnds']
+    libdirs=['${BLOCKSDS}/libs/maxmod', '${BLOCKSDS}/libs/libnds']
 )
 save_lib.generate_dsl()
 
