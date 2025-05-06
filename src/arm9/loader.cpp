@@ -27,12 +27,12 @@ namespace Loader
         exampleLib = dlopen("nitro:/dsl/example.dsl", RTLD_NOW | RTLD_LOCAL);
         printf("Example lib loaded to %x\n", (u32)exampleLib);
 
-        isFlagSetFn = (fnIsFlagSet *)dlsym(exampleLib, "isFlagSet(Save*, unsi");
+        isFlagSetFn = (fnIsFlagSet *)dlsym(exampleLib, "_Z9isFlagSetP4Savet");
         printf("isFlagSet loaded to %x\n", (u32)isFlagSetFn);
-        setFlagFn = (fnSetFlag *)dlsym(exampleLib, "setFlag");
-        clearFlagFn = (fnClearFlag *)dlsym(exampleLib, "clearFlag");
-        getGlobalFn = (fnGetGlobal *)dlsym(exampleLib, "getGlobal");
-        setGlobalFn = (fnSetGlobal *)dlsym(exampleLib, "setGlobal");
+        setFlagFn = (fnSetFlag *)dlsym(exampleLib, "_Z7setFlagP4Savet");
+        clearFlagFn = (fnClearFlag *)dlsym(exampleLib, "_Z9clearFlagP4Savet");
+        getGlobalFn = (fnGetGlobal *)dlsym(exampleLib, "_Z9getGlobalP4Savet");
+        setGlobalFn = (fnSetGlobal *)dlsym(exampleLib, "_Z9setGlobalP4Saveth");
 
         getMemUsedFn = (fnGetMemUsed *)dlsym(exampleLib, "getMemUsed");
         getMemFreeFn = (fnGetMemFree *)dlsym(exampleLib, "getMemFree");
