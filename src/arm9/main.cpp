@@ -24,6 +24,7 @@ int main()
 
     consoleSelect(&topScreen);
 
+    mulf32(floattof32(1.0), floattof32(25.0));
 
     bool init_ok = nitroFSInit(NULL);
     if (!init_ok)
@@ -56,8 +57,10 @@ int main()
     }
     SaveExtensions::setGlobal(save, 5, 20);
     printf("Global 5 was set to %d\n", SaveExtensions::getGlobal(save, 5));
-    
+
     SaveManager::save(1, save);
+
+    SaveExtensions::saveSeekForSomeReason(save, string("nitro:/tmp.sav"));
 
     printf("Mem used: %d\nMem free: %d\n", Debug::getMemUsed(), Debug::getMemFree());
 

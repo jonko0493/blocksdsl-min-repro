@@ -19,6 +19,7 @@ example_lib.generate_dsl()
 
 nitrofs = NitroFS()
 nitrofs.add_arm9_dsl(example_lib)
+nitrofs.add_files_unchanged('nitrofs')
 nitrofs.generate_image()
 
 nds = NdsRom(

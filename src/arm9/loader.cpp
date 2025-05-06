@@ -5,6 +5,7 @@ typedef void (fnSetFlag)(Save *, u16);
 typedef void (fnClearFlag)(Save *, u16);
 typedef u8 (fnGetGlobal)(Save *, u16);
 typedef void (fnSetGlobal)(Save *, u16, u8);
+typedef void (fnSaveSeekForSomeReason)(Save *, string);
 
 typedef int (fnGetMemUsed)();
 typedef int (fnGetMemFree)();
@@ -14,6 +15,7 @@ fnSetFlag *setFlagFn;
 fnClearFlag *clearFlagFn;
 fnGetGlobal *getGlobalFn;
 fnSetGlobal *setGlobalFn;
+fnSaveSeekForSomeReason *saveSeekForSomeReasonFn;
 
 fnGetMemUsed *getMemUsedFn;
 fnGetMemFree *getMemFreeFn;
@@ -33,6 +35,7 @@ namespace Loader
         clearFlagFn = (fnClearFlag *)dlsym(exampleLib, "clearFlag");
         getGlobalFn = (fnGetGlobal *)dlsym(exampleLib, "getGlobal");
         setGlobalFn = (fnSetGlobal *)dlsym(exampleLib, "setGlobal");
+        saveSeekForSomeReasonFn = (fnSaveSeekForSomeReason *)dlsym(exampleLib, "saveSeekForSomeReason");
 
         getMemUsedFn = (fnGetMemUsed *)dlsym(exampleLib, "getMemUsed");
         printf("getMemUsed loaded to %x\n", (u32)getMemUsedFn);
@@ -70,6 +73,11 @@ namespace SaveExtensions
     void setGlobal(Save *save, u16 global, u8 value)
     {
         setGlobalFn(save, global, value);
+    }
+
+    void saveSeekForSomeReason(Save *save, string file)
+    {
+        saveSeekForSomeReasonFn(save, file);
     }
 }
 
