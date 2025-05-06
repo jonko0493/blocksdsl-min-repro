@@ -1,0 +1,36 @@
+{
+    "configurations": [
+        {
+            "name": "NDS (Linux)",
+            "includePath": [
+                "${workspaceFolder}",
+                "${workspaceFolder}/libs/**",
+                "/opt/wonderful/toolchain/gcc-arm-none-eabi/include/**",
+                "/opt/wonderful/thirdparty/blocksds/core/libs/dswifi/include/**",
+                "/opt/wonderful/thirdparty/blocksds/core/libs/libnds/include/**",
+                "/opt/wonderful/thirdparty/blocksds/core/libs/maxmod/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "_UNICODE",
+                "ARM7",
+                "ARM9"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "${workspaceFolder}/libs/**",
+                    "/opt/wonderful/toolchain/gcc-arm-none-eabi/include/**",
+                    "/opt/wonderful/thirdparty/blocksds/core/libs/libnds/include/**"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "cStandard": "c11",
+            "cppStandard": "c++20",
+            "compilerPath": "/opt/wonderful/toolchain/gcc-arm-none-eabi/bin/arm-none-eabi-g++",
+            "intelliSenseMode": "gcc-arm"
+        }
+    ],
+    "version": 4
+}
