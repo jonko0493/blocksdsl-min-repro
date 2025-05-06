@@ -13,7 +13,7 @@ string SaveManager::getSavePath()
     {
         defaultDrive = "fat:/";
     }
-    string path = format("{}into-the-dream-spring.sav", defaultDrive);
+    string path = format("{}main.sav", defaultDrive);
     return path;
 }
 
