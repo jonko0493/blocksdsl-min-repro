@@ -41,11 +41,9 @@ int main()
     swiWaitForVBlank();
 
     printf("Loading example library...\n");
+    Save *tmp = new Save();
+    delete tmp;
     Loader::loadExampleLib();
-
-    SoundPlayer *soundPlayer = new SoundPlayer();
-    soundPlayer->playSound();
-    soundPlayer->stopSound();
 
     printf("Creating save file...\n");
     save = Loader::createSave();
@@ -53,11 +51,11 @@ int main()
     save->setFlag(5);
     if (save->isFlagSet(5))
     {
-        printf("Flag 5 was set.");
+        printf("Flag 5 was set.\n");
     }
 
     save->setGlobal(5, 50);
-    printf("Global 5 has value %d", save->getGlobal(5));
+    printf("Global 5 has value %d\n", save->getGlobal(5));
 
     printf("Unloading example lib...\n");
     Loader::unloadExmapleLib();

@@ -13,7 +13,7 @@
 #include <fat.h>
 #include <filesystem.h>
 #include <nds.h>
-#include <nds/arm9/dldi.h>
+// #include <nds/arm9/dldi.h>
 #include <nds/arm9/math.h>
 
 #include "loader.hpp"

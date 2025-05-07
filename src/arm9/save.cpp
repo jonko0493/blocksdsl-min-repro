@@ -1,4 +1,5 @@
 #include "save.hpp"
+#include "loader.hpp"
 
 // Make things unnecessarily complicated so we can use C++ stuff lol
 void debugLog(string str)
@@ -82,7 +83,7 @@ Save *SaveManager::load(int slot)
     FILE *saveFile = fopen(path.c_str(), "rb");
     fseek(saveFile, slot * SAVE_SLOT_SIZE, SEEK_SET);
 
-    Save *save = new Save();
+    Save *save = Loader::createSave();
 
     int flagRead = fread(save->getSaveSlot()->flags, sizeof(u8), 512, saveFile);
     debugLog(format("Read {:d} bytes of flags", flagRead));
@@ -93,3 +94,5 @@ Save *SaveManager::load(int slot)
 
     return save;
 }
+
+Save::~Save() {}

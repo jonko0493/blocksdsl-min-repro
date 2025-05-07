@@ -10,10 +10,11 @@ namespace Loader
 
     void loadExampleLib()
     {
-        saveLib = dlopen("nitro:/dsl/example.dsl", RTLD_NOW | RTLD_LOCAL);
-        printf("Example lib loaded to %x\n", (u32)saveLib);
+        saveLib = dlopen("nitro:/dsl/save.dsl", RTLD_NOW | RTLD_LOCAL);
+        printf("Save lib loaded to %x\n", (u32)saveLib);
 
-        createSaveFn = (fnCreateSave *)dlsym(saveLib, "createSave");
+        createSaveFn = (fnCreateSave *)dlsym(saveLib, "_Z10createSavev");
+        printf("createSaveFn loaded to %x\n", (u32)createSaveFn);
     }
 
     void unloadExmapleLib()

@@ -4,7 +4,7 @@
 #include <string>
 
 #include <nds.h>
-#include <nds/arm9/dldi.h>
+// #include <nds/arm9/dldi.h>
 #include <nds/interrupts.h>
 #include <fat.h>
 
@@ -34,12 +34,12 @@ class Save
 {
     public:
         virtual ~Save();
-        virtual SaveSlot *getSaveSlot();
-        virtual bool isFlagSet(u16 flag);
-        virtual void setFlag(u16 flag);
-        virtual void clearFlag(u16 flag);
-        virtual u8 getGlobal(u16 global);
-        virtual void setGlobal(u16 global, u8 value);
+        virtual SaveSlot *getSaveSlot() { return new SaveSlot(); }
+        virtual bool isFlagSet(u16 flag) { return true; }
+        virtual void setFlag(u16 flag) {}
+        virtual void clearFlag(u16 flag) {}
+        virtual u8 getGlobal(u16 global) { return 0; }
+        virtual void setGlobal(u16 global, u8 value) {}
 };
 
 class SaveManager

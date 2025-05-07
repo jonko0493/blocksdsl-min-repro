@@ -2,8 +2,6 @@
 SaveImpl::SaveImpl()
 {
     this->saveSlot = new SaveSlot();
-    SoundPlayer *soundPlayer = new SoundPlayer();
-    soundPlayer->playSound();
     fifoSendValue32(FIFO_USER_01, 1);
 }
 
